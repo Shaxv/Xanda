@@ -1,12 +1,53 @@
 {% load static %}
 
-<nav class="navbar">
-    <ul class="navbar-nav">
-        <li class="nav-item nav-icon srch">
-            <a class="nav-link hvr-bounce-to-bottom" href=""><i class="fas fa-search"></i></a>
+<nav class="navbar navbar-expand-sm">
+  <div class="justify-content-between">
+
+    <!-- Left elements -->
+    <ul class="d-flex navbar-nav">
+        <li class="nav-item nav-icon border-right">
+            <a class="nav-link hvr-bounce-to-bottom" href="">
+                <i class="fal fa-search"></i>
+            </a>
         </li>
-        <li class="nav-item nav-icon ctgr">
-            <a class="nav-link hvr-bounce-to-bottom" href=""><i class="fas fa-bars"></i></a>
+        <li class="nav-item nav-icon border-right ctgr">
+            <a class="nav-link hvr-bounce-to-bottom" href="">
+                <i class="fal fa-bars"></i>
+                <h1 class="title">Category</h1>
+            </a>
         </li>
     </ul>
+    <!-- Left elements -->
+
+    <!-- Center elements -->
+    <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item logo">
+            <a class="nav-link" href="{% url 'index' %}">
+                <img src="{% static 'pics/logo.png' %}">
+            </a>
+        </li>
+    </ul>
+    <!-- Center elements -->
+
+    <!-- Right elements -->
+    <ul class="navbar-nav flex-row">
+        <li class="nav-item nav-icon border-left">
+            <a class="nav-link hvr-bounce-to-bottom" href="{% if request.user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'login' %}{% endif %}">
+                <i class="{% if request.user.is_authenticated %}fas{% else %}fal{% endif %} fa-user"></i>
+            </a>
+        </li>
+        <li class="nav-item nav-icon border-left">
+            <a class="nav-link hvr-bounce-to-bottom" href="">
+                <i class="fal fa-heart"></i>
+            </a>
+        </li>
+        <li class="nav-item nav-icon border-left">
+            <a class="nav-link hvr-bounce-to-bottom" href="">
+                <i class="fal fa-shopping-cart"></i>            
+            </a>
+        </li>
+    </ul>
+    <!-- Right elements -->
+
+  </div>
 </nav>

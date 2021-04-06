@@ -1,9 +1,9 @@
 :root{
-    --prColor1: 60, 190, 250;
+    --prColor1: 85, 112, 201;
     --secColor1: 98, 60, 250;
     --errColor1: 201, 87, 87;
     --succColor1: 100, 196, 82;
-    --borderColor: 161, 225, 255;
+    --borderColor: 217, 218, 255, 0.4;
 }
 
 *{
@@ -14,7 +14,40 @@
  Default
 */
 
-.title{ font-family: "Quicksand", sans-serif !important; }
+.title{ font-family: "Quicksand", sans-serif !important; text-transform: uppercase; }
+.border-left{ border-left: 1.4px solid rgba(var(--borderColor)); }
+.border-right{ border-right: 1.4px solid rgba(var(--borderColor)); }
+.badge{ background-color: rgba(0, 0, 0, 0.75) !important; text-transform: lowercase; font-family: "Quicksand"; }
+
+.button{
+    border-radius: 28px; 
+    padding: 12px 36px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 15px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35); 
+    text-decoration: none; 
+    transition: all 0.2s;
+}
+.button:active{
+    transform: scale(0.9, 0.9);
+}
+.button-primary{ 
+    background-color: white !important; 
+    color: black !important; 
+}
+.button-primary:hover{
+    cursor: pointer;
+    color: black;
+}
+.button-secondary{
+    background-color: rgba(255, 255, 255, 0.15); 
+    color: white; 
+}
+.button-secondary:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.25); 
+    color: white;
+}
 
 /*
  Navigation bar
@@ -22,26 +55,51 @@
 
 .navbar{
     padding: 0;
-    background: #585efa;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border-bottom: 1.4px solid rgb(var(--borderColor));
+    background: rgba(var(--prColor1), 1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    border-bottom: 1.4px solid rgba(var(--borderColor));
 }
-.srch{
-    border-right: 1.4px solid rgb(var(--borderColor));
+.navbar div:first-of-type{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    width: 100%;
 }
-.ctgr i{
-    padding: 12px 40px; 
+.nav-link{
+    height: 100%;
 }
 .nav-icon{
     font-size: 18px;
-    font-weight: 200;
-    position: relative;
 }
 .nav-icon a{
     color: rgb(255, 255, 255);
 }
 .nav-icon i{
-    padding: 12px 20px;
+    padding: 12px 16px;
+}
+.ctgr{
+    border-right: 1.4px solid rgba(var(--borderColor));
+    position: relative;
+}
+.ctgr i{
+    padding: 12px 14px;
+}
+.ctgr .title{
+    display: inline-block;
+    font-size: 18px;
+    padding-right: 8px;
+}
+.logo img{
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+}
+.d-none{
+    justify-content: center;
+    margin-right: 30px;
 }
 
 /*
@@ -49,7 +107,7 @@
 */
 
 header{
-    background: linear-gradient(350deg, rgba(60,190,250,1) 0%, rgba(98,60,250,1) 100%);
+    background: rgba(var(--prColor1), 0.9);
     text-align: center;
     color: white;
 }
@@ -58,12 +116,11 @@ header{
     padding-bottom: 80px;
 }
 .header-title{
-    text-transform: uppercase;
     font-size: 26px;
 }
 .header-sub-title{
     font-weight: 200;
-    color: rgb(180, 180, 180);
+    color: rgb(211, 211, 211);
 }
 
 /*
@@ -77,7 +134,75 @@ header{
     position: absolute;
     top: -50px;
     background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 900px;
+}
+
+/*
+ Featured products
+*/
+
+#app .row:nth-child(1){
+    width: 100%;
+    margin: 0 auto;
+}
+#app .col-8:nth-child(1){
+    padding: 0;
+}
+#app .col-4:nth-child(2){
+    padding: 0;
+}
+.featureds .badge{
+    position: absolute;
+    left: 40px;
+    top: 25px;
+}
+.featureds .button{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+}
+.featureds .title{
+    color: white;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+.featureds h2{
+    color: white;
+    letter-spacing: 0px;
+    font-size: 20px;
+}
+.featureds .info-wrapper{
+    position: absolute;
+    top: 100px;
+    left: 40px;
+}
+.featured-1{
+    background-color: #69bad4;
+    background-image: linear-gradient(310deg, #69bad4 40%, rgba(var(--prColor1), 0.9) 85%);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.featured-1 img{
+    display: block;
+    float: right;
+    height: 400px;
+    position: absolute;
+    right: 10px;
+    bottom: -80px;
+}
+.featured-2{
+    background-color: #7f53ac;
+    background-image: linear-gradient(310deg, #7f53ac 30%, rgba(var(--prColor1), 0.8) 70%);
+    height: 100%;
+    position: relative;
+}
+.featured-2 img{
+    display: block;
+    float: right;
+    height: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
