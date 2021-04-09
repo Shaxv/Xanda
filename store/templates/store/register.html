@@ -2,6 +2,15 @@
 
 {% load static %}
 
+{% block header %}
+    <header>
+        <div class="header-text-container">
+            <div class="header-title title">Register Page</div>
+            <div class="header-sub-title">Register</div>
+        </div>
+    </header>
+{% endblock %}
+
 {% block content %}
     Register
     <a href="{% url 'login' %}">Login</a>

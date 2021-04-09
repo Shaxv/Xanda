@@ -16,41 +16,17 @@
     </head>
     <body>
         {% include "store/navbar.html" %}
-        <header>
-            <div class="header-text-container">
-                <div class="header-title title">Home page</div>
-                <div class="header-sub-title">Home</div>
-            </div>
-        </header>
+
+        {% block header %}
+        {% endblock %}
+
         <div class="container main">
             <div id="app">
-                <div class="row featureds">
-                    <div class="col-8">
-                        <div class="featured-1">
-                            <span class="badge">New</span>
-                            <div class="info-wrapper">
-                                <h1 class="title">MOUNTAIN BIKE</h1>
-                                <h2>Trek Speed Concept</h2>
-                            </div>
-                            <a class="button button-secondary">More info</a>
-                            <img src="{% static 'pics/products/blue_bicycle.png' %}">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="featured-2">
-                            <span class="badge">Sale</span>
-                            <div class="info-wrapper">
-                                <h1 class="title">ZIPPER HOODIE</h1>
-                                <h2>2021 Sale Collection</h2>
-                            </div>
-                            <a class="button button-secondary">More info</a>
-                            <img src="{% static 'pics/products/purple_hoodie.png' %}">
-                        </div>
-                    </div>
-                </div>
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
+        
+        {% include "store/footer.html" %}
     </body>
 </html>
