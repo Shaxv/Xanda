@@ -6,7 +6,8 @@ urlpatterns = [
     re_path(r'register/$', views.Register, name="register"),
     re_path(r'login/$', views.Login, name="login"),
     re_path(r'profile/$', views.Profile, name="profile"),
-    re_path(r'(?P<c_name>\w+)/', views.Collection, name="collection"),
+    re_path(r'collection/(?P<collection>\w+)/', views.Collection, name="collection"),
+    re_path(r'collection/(?P<collection>\w+)/(?P<product>\w+)/', views.Collection, name="product"),
 ]
 
 """

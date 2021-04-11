@@ -9,8 +9,8 @@
 {% block header %}
     <header>
         <div class="header-text-container">
-            <div class="header-title title">{{c_name}} Collection</div>
-            <div class="header-sub-title">Home <i class="fal fa-angle-right"></i> {{c_name}}</div>
+            <div class="header-title title">{{collection}} Collection</div>
+            <div class="header-sub-title"><a href="{% url 'index' %}">Home</a> <i class="fal fa-angle-right"></i> <a href="{% url 'collection' collection %}">{{collection}}</a></div>
         </div>
     </header>
 {% endblock %}

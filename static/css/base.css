@@ -120,13 +120,14 @@ header{
 .header-title{
     font-size: 26px;
 }
-.header-sub-title{
+.header-sub-title a{
     font-weight: 200;
     color: rgb(211, 211, 211);
+    text-decoration: none;
 }
 
 /*
- App
+ Main App
 */
 
 .main{
@@ -160,7 +161,6 @@ header{
 }
 #footer i:hover{
     color: rgba(var(--prColor1), 1);
-    cursor: pointer;
 }
 
 .pp a{ color: gray !important; }

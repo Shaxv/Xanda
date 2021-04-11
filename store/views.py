@@ -12,23 +12,32 @@ def Index(request):
 
 def Register(request):
     context = {
+        "title": "Register",
         "form": RegisterForm,
     }
     return render(request, "store/register.html", context)
 
 def Login(request):
-    return render(request, "store/login.html", {})
+    context = {
+        "title": "Login",
+        "form": LoginForm,
+    }
+    return render(request, "store/login.html", context)
 
 def Profile(request):
-    return render(request, "store/profile.html", {})
+    context = {
+        "title": "Profile",
+    }
+    return render(request, "store/profile.html", context)
 
 
 #
 # Catalog
 #
 
-def Collection(request, c_name):
+def Collection(request, collection):
     context = {
-        "c_name": c_name,
+        "title": collection,
+        "collection": collection,
     }
     return render(request, "store/collection.html", context)
