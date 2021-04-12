@@ -11,6 +11,7 @@
         <link href="{% static 'css/all.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'css/hover.css' %}" rel="stylesheet" type="text/css">
+        <script src="{% static 'js/base.js' %}" type="text/javascript"></script>
         {% block head %}
         {% endblock %}
     </head>
@@ -20,6 +21,32 @@
         {% block header %}
         {% endblock %}
 
+        <nav id="collections">
+            <div id="dismiss"><i class="fal fa-arrow-left" onclick="sideBarCollapse('ki')"></i></div>
+            
+            <div class="collections-header">Collections</div>
+
+            <div class="collections-body">
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <li>
+                            <a href="{% url 'collection' 'Nike' %}">
+                                <h4>Nike collection</h4>
+                                <img src="{% static 'pics/nike.png' %}">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'collection' 'Adidas' %}">
+                                <h4>Adidas collection</h4>
+                                <img src="{% static 'pics/adidas.png' %}">
+                            </a>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
         <div class="container main">
             <div id="app">
                 {% block content %}
@@ -27,6 +54,8 @@
             </div>
         </div>
         
+        <div id="overlay"></div>
+
         {% include "store/footer.html" %}
     </body>
 </html>

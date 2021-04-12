@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from .forms import LoginForm, RegisterForm
 
@@ -35,9 +35,9 @@ def Profile(request):
 # Catalog
 #
 
-def Collection(request, collection):
+def Collection(request, collection_name):
     context = {
-        "title": collection,
-        "collection": collection,
+        "title": collection_name,
+        "collection_name": collection_name,
     }
     return render(request, "store/collection.html", context)
