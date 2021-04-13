@@ -23,6 +23,7 @@
 .badge{ background-color: rgba(0, 0, 0, 0.75) !important; text-transform: lowercase; font-family: "Quicksand"; }
 i{ font-style: normal !important; }
 hr{ color: rgba(var(--borderColor)); background-color: rgba(var(--borderColor));}
+#app input:-webkit-autofill{ background: transparent !important; }
 
 .button{
     border-radius: 28px; 
@@ -58,51 +59,32 @@ hr{ color: rgba(var(--borderColor)); background-color: rgba(var(--borderColor));
  Navigation bar
 */
 
-.navbar{
-    padding: 0;
-    background: rgba(var(--prColor1), 1);
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+.navbar{ padding: 0; background: rgba(var(--prColor1), 1); box-shadow: 0 0 15px rgba(0,0,0,0.25); border-bottom: 1.4px solid rgba(var(--borderColor)); }
+.navbar div:first-of-type{ display: flex; flex-wrap: inherit; align-items: center; width: 100%; }
+.nav-link{ height: 100%; }
+.nav-icon{ font-size: 18px; }
+.nav-icon a{ color: rgb(255, 255, 255); }
+.nav-icon i{ padding: 12px 16px; }
+.ctgr{ border-right: 1.4px solid rgba(var(--borderColor)); position: relative; cursor: pointer; }
+.ctgr i{ padding: 12px 14px; }
+.ctgr .title{ display: inline-block; font-size: 18px; padding-right: 8px; text-transform: none; }
+.logo img{ margin: 0 auto; position: relative; height: 30px; }
+.d-none{ justify-content: center; margin-right: 30px; }
+
+#searchForm{ height: 100%; }
+#searchForm .btn{ color: white !important; border-radius: 0; }
+#searchForm .btn:active{ box-shadow: none !important; }
+#searchForm .btn:focus{ box-shadow: none !important; }
+#searchForm input::placeholder{ color: white; font-family: "Quicksand", sans-serif; }
+#searchForm input{
+    margin: 0 12px 0 10px;
+    background: transparent;
+    color: white;
+    border: none;
     border-bottom: 1.4px solid rgba(var(--borderColor));
-}
-.navbar div:first-of-type{
-    display: flex;
-    flex-wrap: inherit;
-    align-items: center;
-    width: 100%;
-}
-.nav-link{
-    height: 100%;
-}
-.nav-icon{
-    font-size: 18px;
-}
-.nav-icon a{
-    color: rgb(255, 255, 255);
-}
-.nav-icon i{
-    padding: 12px 16px;
-}
-.ctgr{
-    border-right: 1.4px solid rgba(var(--borderColor));
-    position: relative;
-}
-.ctgr i{
-    padding: 12px 14px;
-}
-.ctgr .title{
-    display: inline-block;
-    font-size: 18px;
-    padding-right: 8px;
-    text-transform: none;
-}
-.logo img{
-    margin: 0 auto;
-    position: relative;
-    height: 30px;
-}
-.d-none{
-    justify-content: center;
-    margin-right: 30px;
+    font-family: "Quicksand", sans-serif;
+    padding: 2px 8px;
+    outline: none;
 }
 
 /*
@@ -132,7 +114,8 @@ header{
 */
 
 #collections{
-    display: none;
+    visibility: hidden;
+    margin-left: -280px;
     min-width: 280px;
     max-width: 280px;
     height: 100%;
@@ -146,19 +129,13 @@ header{
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
 }
-#collections img{
-    height: 190px;
-    width: 190px;
-    border: 2px solid rgba(var(--borderColor));
-    padding: 10px;
-    border-radius: 6px;
-}
 #collections.active{
-    display: block;
+    visibility: visible;
     opacity: 1;
+    margin-left: 0;
 }
 #overlay{
-    display: none;
+    visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -170,7 +147,7 @@ header{
     transition: all 0.5s ease-in-out;
 }
 #overlay.active{
-    display: block;
+    visibility: visible;
     opacity: 1;
 }
 #dismiss{
@@ -183,7 +160,12 @@ header{
     top: 10px;
     right: 10px;
     cursor: pointer;
+    transition: all 0.2s;
 }
+
+#dismiss:hover{ background: rgba(var(--prColor1), 0.8) }
+#dismiss:active{ transform: scale(0.9); }
+
 .collections-header{
     position: absolute;
     top: 15px;
@@ -192,12 +174,41 @@ header{
     font-family: 'Quicksand', sans-serif;
 
 }
+#collections li:not(:first-of-type){
+    margin-top: 20px;
+}
 .collections-body{
     position: absolute;
     top: 80px;
     left: 20px;
 }
-
+#adidas, #nike{
+    border-radius: 6px;
+    border: 2px solid rgba(var(--borderColor));
+} 
+#adidas a, #nike a{
+    text-decoration: none;
+}
+#adidas img{
+    width: 230px;
+    height: 210px;
+    padding: 10px;
+}
+#nike img{
+    width: 230px;
+    height: 150px;
+    padding: 10px;
+}
+.collections-text{
+    background: rgb(var(--prColor1));
+    color: white;
+    text-align: center;
+    padding: 4px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+}
 
 /*
  Main App
