@@ -1,17 +1,18 @@
+
 //
 // Base
 //
 
 const errorHandler = (item) =>{
-    item.style.borderRadius = "5px"
+    item.style.borderRadius = "6px"
 
     item.animate([
         {boxShadow: 'none'},
-        {boxShadow: '0 0 0 0.20rem rgba(232, 94, 108, 0.7)'},
-        {boxShadow: '0 0 0 0.20rem rgba(232, 94, 108, 0.7)'},
+        {boxShadow: '0 0 0 0.15rem rgba(232, 94, 108, 0.75)'},
+        {boxShadow: '0 0 0 0.17rem rgba(232, 94, 108, 0.75)'},
         {boxShadow: 'none'},
-        {boxShadow: '0 0 0 0.20rem rgba(232, 94, 108, 0.7)'},
-        {boxShadow: '0 0 0 0.20rem rgba(232, 94, 108, 0.7)'},
+        {boxShadow: '0 0 0 0.17rem rgba(232, 94, 108, 0.75)'},
+        {boxShadow: '0 0 0 0.15rem rgba(232, 94, 108, 0.75)'},
         {boxShadow: 'none'},
     ], {
         duration: 850,
@@ -20,7 +21,7 @@ const errorHandler = (item) =>{
     
     setTimeout(function(){
         item.style.borderRadius = "0"
-    }, 850)
+    }, 840)
 }
 
 //
@@ -43,8 +44,7 @@ const sideBarCollapse = (x) =>{
         }, 50, function(){
             $("#collections").addClass("active")
         })
-    }
-    else{
+    } else {
         $("#overlay").animate({
             visibility: 'hidden',
             opacity: '0',
@@ -63,5 +63,26 @@ const sideBarCollapse = (x) =>{
 }
 
 const searchSubmit = () =>{
-    errorHandler($("#searchInput")[0])
+    if ($("#searchInput").val() == ""){
+        $("#searchInput").focus()
+        errorHandler($("#searchInput")[0])
+    } else {
+        alert($("#searchInput").val())
+    }
+}
+
+const openSearch = () =>{
+    $("#searchForm").attr("onsubmit", "searchSubmit(); return false;")
+
+    $("#searchLi").addClass("border-right")
+
+    $("#searchInput").css("z-index", "1")
+    $("#searchInput").animate({
+        margin: '0 12px 0 10px',
+        visibility: 'visible',
+        opacity: '1',
+        borderBottom: '1.4px solid rgba("217, 218, 255, 0.4")',
+    }, 50, function(){
+        $("#searchInput").addClass("active")
+    })
 }

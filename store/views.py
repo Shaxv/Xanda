@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.db.models import Q
+from django.views.generic.list import ListView
 
 from .forms import LoginForm, RegisterForm
 
@@ -41,3 +43,10 @@ def Collection(request, collection_name):
         "collection_name": collection_name,
     }
     return render(request, "store/collection.html", context)
+
+#
+# Search
+#
+
+def Search(ListView):
+    return "asd"

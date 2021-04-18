@@ -8,6 +8,8 @@ urlpatterns = [
     re_path(r'profile/$', views.Profile, name="profile"),
     re_path(r'collection/(?P<collection_name>\w+)/', views.Collection, name="collection"),
     re_path(r'collection/(?P<collection_name>\w+)/(?P<product_name>\w+)/', views.Collection, name="product"),
+
+    re_path(r'^search/$', views.Search, name="search")
 ]
 
 """

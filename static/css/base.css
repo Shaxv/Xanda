@@ -4,6 +4,7 @@
     --errColor1: 237, 83, 83;
     --succColor1: 100, 196, 82;
     --borderColor: 217, 218, 255, 0.4;
+    --grayish: 211, 211, 211;
 }
 
 *{
@@ -75,16 +76,27 @@ hr{ color: rgba(var(--borderColor)); background-color: rgba(var(--borderColor));
 #searchForm .btn{ color: white !important; border-radius: 0; }
 #searchForm .btn:active{ box-shadow: none !important; }
 #searchForm .btn:focus{ box-shadow: none !important; }
-#searchForm input::placeholder{ color: white; font-family: "Quicksand", sans-serif; }
+#searchForm input::placeholder{ color: rgb(var(--grayish)); font-family: "Quicksand", sans-serif; }
 #searchForm input{
+    visibility: visible;
+    opacity: 1;
+    position: relative;
     margin: 0 12px 0 10px;
+    margin-left: -254px;
     background: transparent;
     color: white;
     border: none;
-    border-bottom: 1.4px solid rgba(var(--borderColor));
     font-family: "Quicksand", sans-serif;
     padding: 2px 8px;
     outline: none;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
+#searchForm input.active{
+    visibility: visible;
+    opacity: 1;
+    margin: 0 12px 0 10px;
+    border-bottom: 1.4px solid rgba(var(--borderColor));
 }
 
 /*
@@ -105,7 +117,7 @@ header{
 }
 .header-sub-title a{
     font-weight: 200;
-    color: rgb(211, 211, 211);
+    color: rgb(var(--grayish));
     text-decoration: none;
 }
 
