@@ -1,6 +1,11 @@
 {% extends "store/base.html" %}
 
 {% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/authentication.css' %}" type="text/css">
+{% endblock %}
 
 {% block header %}
     <header>
@@ -12,6 +17,12 @@
 {% endblock %}
 
 {% block content %}
-    Register
-    <a href="{% url 'login' %}">Login</a>
+    {% for f in form %}
+        <div class="input-container">
+            {% render_field f class="input" placeholder=f.label %}
+        </div>
+    {% endfor %}
+    
+    <div class="bottom-text">Have already an account? <a href="{% url 'login' %}">Login</a></div>
+
 {% endblock %}

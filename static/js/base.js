@@ -44,7 +44,7 @@ const sideBarCollapse = (x) =>{
         }, 50, function(){
             $("#collections").addClass("active")
         })
-    } else {
+    } else { 
         $("#overlay").animate({
             visibility: 'hidden',
             opacity: '0',
@@ -63,7 +63,7 @@ const sideBarCollapse = (x) =>{
 }
 
 const searchSubmit = () =>{
-    if ($("#searchInput").val() == ""){
+    if ($("#searchInput").val() == "" || $("#searchInput").val().length <= 3){
         $("#searchInput").focus()
         errorHandler($("#searchInput")[0])
     } else {
