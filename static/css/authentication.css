@@ -1,4 +1,40 @@
-.input{
+#app{
+    width: 50%;
+    margin: 0 auto;
+}
+.form-wrapper{
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
+.input-container{ position: relative; }
+.input{
+    width: 100%;
+    display: block;
+    margin: 20px auto;
+    padding: 4px 6px;
+    border-radius: 4px;
+    outline: none;
+    border: 1.4px solid rgba(var(--grayish));
+}
 .input::placeholder, .input::-webkit-input-placeholder{ font-family: "Quicksand", sans-serif; }
+.icon-wrapper i{ position: absolute; top: 4px; right: 10px; z-index: 100; }
+
+.submit-button{
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    width: 100%;
+    background: rgba(var(--prColor1), 0.8);
+    background-image: linear-gradient(to left, rgba(var(--prColor1), 1) 20%, rgba(var(--grayish), 0.5));
+    color: white;
+    font-weight: 600;
+    font-family: "Quicksand", sans-serif;
+    border-radius: 4px;
+}
+
+.bottom-text{ padding-top: 100px; padding-bottom: 20px; text-align: center; font-family: 'Quicksand', sans-serif; }
