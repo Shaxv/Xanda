@@ -1,6 +1,11 @@
 {% extends "store/base.html" %}
 
 {% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/authentication.css' %}" type="text/css">
+{% endblock %}
 
 {% block header %}
     <header>
@@ -12,6 +17,37 @@
 {% endblock %}
 
 {% block content %}
-    Login
-    <a href="{% url 'register' %}">Register</a>
+
+    <div class="form-wrapper">
+        <form method="post">
+            {% csrf_token %}
+            {% for f in form %}
+                <div class="input-container">
+                    {% render_field f class="input" placeholder=f.label %}
+                    <div class="icon-wrapper">
+                        <i class="
+                            {% if f.label == 'Username' %}fal fa-user
+                            {% elif f.label == "Password" %}fal fa-key
+                            {% endif %}"></i>
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="submit-button">Sign in</button>
+        </form>
+
+        <!---
+        <div class="icons-wrapper">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{% static 'pics/google.png' %}" class="googl">
+                </div>
+                <div class="col-6">
+                    <img src="{% static 'pics/facebook.png' %}" class="fb">
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+    <div class="bottom-text">Don't have an account? <a href="{% url 'register' %}">Register</a></div>
+    
 {% endblock %}

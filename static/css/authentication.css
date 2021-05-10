@@ -37,4 +37,22 @@
     border-radius: 4px;
 }
 
-.bottom-text{ padding-top: 100px; padding-bottom: 20px; text-align: center; font-family: 'Quicksand', sans-serif; }
+.bottom-text{ padding-top: 40px; padding-bottom: 20px; text-align: center; color: gray; font-family: "Quicksand", sans-serif; }
+
+/*
+.icons-wrapper{
+    margin-top: 50px;
+}
+.googl{
+    padding: 10px !important;
+    width: 100%;
+}
+.fb{
+    padding: 40px;
+    width: 100%;
+}
+.icons-wrapper img{
+    border: 1.4px solid rgba(var(--grayish));
+    border-radius: 4px;
+    padding: 26px;
+}*/

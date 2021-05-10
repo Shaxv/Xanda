@@ -20,6 +20,7 @@
 
     <div class="form-wrapper">
         <form method="post">
+            {% csrf_token %}
             {% for f in form %}
                 <div class="input-container">
                     {% render_field f class="input" placeholder=f.label %}
@@ -37,8 +38,20 @@
             {% endfor %}
             <button type="submit" class="submit-button">Sign up</button>
         </form>
-    </div>
-    
-    <div class="bottom-text">Have already an account? <a href="{% url 'login' %}">Login</a></div>
 
+        <!---
+        <div class="icons-wrapper">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{% static 'pics/google.png' %}" class="googl">
+                </div>
+                <div class="col-6">
+                    <img src="{% static 'pics/facebook.png' %}" class="fb">
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+    <div class="bottom-text">Have already an account? <a href="{% url 'login' %}">Login</a></div>
+    
 {% endblock %}

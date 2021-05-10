@@ -82,7 +82,7 @@ hr{ color: rgba(var(--borderColor)); background-color: rgba(var(--borderColor));
     opacity: 1;
     position: relative;
     margin: 0 12px 0 10px;
-    margin-left: -254px;
+    margin-left: -229px;
     background: transparent;
     color: white;
     border: none;
@@ -236,6 +236,7 @@ header{
     position: relative;
     top: -50px;
     width: 100%;
+    z-index: 1;
 }
 
 /*
